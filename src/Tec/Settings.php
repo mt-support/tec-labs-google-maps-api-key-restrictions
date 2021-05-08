@@ -224,8 +224,8 @@ class Settings {
 				'type'            => 'text',
 				'label'           => esc_html__( 'Goodle Maps API key for Geocoding API restriction', 'tec-labs-google-maps-api-key-restrictions' ),
 				'tooltip'         => sprintf(
-					esc_html__( 'Enter the API key that you use for the Geocoding API. %1$sClick here%2$s to learn more about Google Maps API Key Restrictions.', 'tec-labs-google-maps-api-key-restrictions' ),
-					'<a href="https://theeventscalendar.com/knowledgebase/k/using-google-maps-api-key-restrictions/" target="_blank">',
+					esc_html__( 'Enter the API key that you use for the Geocoding API. When left empty the above key will be used. %1$sClick here%2$s to learn more about Google Maps API Key Restrictions.', 'tec-labs-google-maps-api-key-restrictions' ),
+					'<br><a href="https://theeventscalendar.com/knowledgebase/k/using-google-maps-api-key-restrictions/" target="_blank">',
 					'</a>'
 				),
 				'validation_type' => 'alpha_numeric_with_dashes_and_underscores',

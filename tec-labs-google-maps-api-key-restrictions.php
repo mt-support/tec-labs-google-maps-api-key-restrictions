@@ -3,7 +3,7 @@
  * Plugin Name:       The Events Calendar Extension: Google Maps API Key Restrictions
  * Plugin URI:        https://theeventscalendar-com/extensions/google-maps-api-key-restrictions
  * GitHub Plugin URI: https://github.com/mt-support/tec-labs-google-maps-api-key-restrictions
- * Description:       Allows the restriction of the Google Maps API Key
+ * Description:       Allows the restriction of the Google Maps API Key. You can <a href="https://theeventscalendar.com/knowledgebase/k/using-google-maps-api-key-restrictions/" target="_blank">read more about it here</a>.
  * Version:           1.0.0
  * Author:            The Events Calendar
  * Author URI:        https://evnt.is/1971
@@ -45,7 +45,7 @@ function tribe_extension_google_maps_api_key_restrictions() {
 	// Register the namespace so we can the plugin on the service provider registration.
 	Tribe__Autoloader::instance()->register_prefix(
 		'\\Tribe\\Extensions\\GoogleMapsApiKeyRestrictions\\',
-		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tribe',
+		__DIR__ . DIRECTORY_SEPARATOR . 'src' . DIRECTORY_SEPARATOR . 'Tec',
 		'google-maps-api-key-restrictions'
 	);
 
