@@ -39,9 +39,6 @@ class Settings {
 
 		$this->set_options_prefix( $options_prefix );
 
-		// Remove settings specific to Google Maps
-		add_action( 'admin_init', [ $this, 'remove_settings' ] );
-
 		// Add settings specific to OSM
 		add_action( 'admin_init', [ $this, 'add_settings' ] );
 	}
@@ -223,25 +220,23 @@ class Settings {
 	 */
 	public function add_settings() {
 		$fields = [
-			// TODO: Settings heading start. Remove this element if not needed. Also remove the corresponding `get_example_intro_text()` method below.
-			'Example'   => [
-				'type' => 'html',
-				'html' => $this->get_example_intro_text(),
-			],
-			// TODO: Settings heading end.
 			'a_setting' => [ // TODO: Change setting.
 				'type'            => 'text',
-				'label'           => esc_html__( 'Example setting', 'tec-labs-google-maps-api-key-restrictions' ),
-				'tooltip'         => sprintf( esc_html__( 'Example setting description. Enter your custom URL, including "http://" or "https://", for example %s.', 'tec-labs-google-maps-api-key-restrictions' ), '<code>https://demo.theeventscalendar.com/</code>' ),
-				'validation_type' => 'html',
+				'label'           => esc_html__( 'Goodle Maps API key for Geocoding API restriction', 'tec-labs-google-maps-api-key-restrictions' ),
+				'tooltip'         => sprintf(
+					esc_html__( 'Enter the API key that you use for the Geocoding API. %1$sClick here%2$s to learn more about Google Maps API Key Restrictions.', 'tec-labs-google-maps-api-key-restrictions' ),
+					'<a href="https://theeventscalendar.com/knowledgebase/k/using-google-maps-api-key-restrictions/" target="_blank">',
+					'</a>'
+				),
+				'validation_type' => 'alpha_numeric_with_dashes_and_underscores',
 			],
 		];
 
 		$this->settings_helper->add_fields(
 			$this->prefix_settings_field_keys( $fields ),
-			'general',
-			'tribeEventsMiscellaneousTitle',
-			true
+			'addons',
+			'google_maps_js_api_key',
+			false
 		);
 	}
 
