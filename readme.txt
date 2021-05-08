@@ -3,19 +3,17 @@ Contributors: theeventscalendar
 Donate link: https://evnt.is/29
 Tags: events, calendar
 Requires at least: 4.9
-Tested up to: 5.7
+Tested up to: 5.7.1
 Requires PHP: 5.6
 Stable tag: 1.0.0
 License: GPL version 3 or any later version
 License URI: https://www.gnu.org/licenses/gpl-3.0.html
 
-Allows the restriction of the Google Maps API Key
+Allows the restriction of the Google Maps API Key.
 
 == Description ==
 
-This is the long description.  No limit, and you can use Markdown (as well as in the following sections).
-
-For backwards compatibility, if this section is missing, the full length of the short description will be used, and Markdown parsed.
+Allows the restriction of the Google Maps API Key. You can [read more about it here](https://theeventscalendar.com/knowledgebase/k/using-google-maps-api-key-restrictions/).
 
 == Installation ==
 
