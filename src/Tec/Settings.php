@@ -6,8 +6,6 @@ use Tribe__Settings_Manager;
 
 /**
  * Do the Settings.
- *
- * TODO: Delete file if not using settings
  */
 class Settings {
 
@@ -29,8 +27,6 @@ class Settings {
 
 	/**
 	 * Settings constructor.
-	 *
-	 * TODO: Update this entire class for your needs, or remove the entire `src` directory this file is in and do not load it in the main plugin file.
 	 *
 	 * @param string $options_prefix Recommended: the plugin text domain, with hyphens converted to underscores.
 	 */
@@ -196,31 +192,12 @@ class Settings {
 	}
 
 	/**
-	 * Here is an example of removing settings from Events > Settings > General tab > "Map Settings" section
-	 * that are specific to Google Maps.
-	 *
-	 * TODO: Remove this method and the corresponding hook in `__construct()` if you don't want to remove any settings.
-	 */
-	public function remove_settings() {
-		// Remove "Enable Google Maps" checkbox
-		$this->settings_helper->remove_field( 'embedGoogleMaps', 'general' );
-
-		// Remove "Map view search distance limit" (default of 25)
-		$this->settings_helper->remove_field( 'geoloc_default_geofence', 'general' );
-
-		// Remove "Google Maps default zoom level" (0-21, default of 10)
-		$this->settings_helper->remove_field( 'embedGoogleMapsZoom', 'general' );
-	}
-
-	/**
 	 * Adds a new section of fields to Events > Settings > General tab, appearing after the "Map Settings" section
 	 * and before the "Miscellaneous Settings" section.
-	 *
-	 * TODO: Move the setting to where you want and update this docblock. If you like it here, just delete this TODO.
 	 */
 	public function add_settings() {
 		$fields = [
-			'gmaps_geo_restriction_key' => [ // TODO: Change setting.
+			'gmaps_geo_restriction_key' => [
 				'type'            => 'text',
 				'label'           => esc_html__( 'Goodle Maps API key for Geocoding API restriction', 'tec-labs-google-maps-api-key-restrictions' ),
 				'tooltip'         => sprintf(
@@ -260,23 +237,4 @@ class Settings {
 
 		return (array) $prefixed_fields;
 	}
-
-	/**
-	 * Here is an example of getting some HTML for the Settings Header.
-	 *
-	 * TODO: Delete this method if you do not need a heading for your settings. Also remove the corresponding element in the the $fields array in the `add_settings()` method above.
-	 *
-	 * @return string
-	 */
-	private function get_example_intro_text() {
-		$result = '<h3>' . esc_html_x( 'Example Extension Setup', 'Settings header', 'tec-labs-google-maps-api-key-restrictions' ) . '</h3>';
-		$result .= '<div style="margin-left: 20px;">';
-		$result .= '<p>';
-		$result .= esc_html_x( 'Some text here about this settings section.', 'Setting section description', 'tec-labs-google-maps-api-key-restrictions' );
-		$result .= '</p>';
-		$result .= '</div>';
-
-		return $result;
-	}
-
 }
