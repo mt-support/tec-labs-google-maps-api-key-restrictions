@@ -114,6 +114,10 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	public function pre_http_request( $response, $args, $url ) {
 		$key = $this->get_option( 'gmaps_geo_restriction_key' );
 
+		// Fallback is option is empty
+		if ( empty( $key ) || $key == '' ) {
+			$key = tribe_get_option( 'google_maps_js_api_key' );
+		}
 		// If this is not a Google Maps geocoding request, or if it is but our replacement
 		// key is already in place, then we need do nothing more.
 		if (
@@ -208,7 +212,7 @@ class Plugin extends \tad_DI52_ServiceProvider {
 	 *
 	 * TODO: Remove if not using settings
 	 */
-	public function get_option( $option, $default ='' ) {
+	public function get_option( $option, $default = '' ) {
 		$settings = $this->get_settings();
 
 		return $settings->get_option( $option, $default );
