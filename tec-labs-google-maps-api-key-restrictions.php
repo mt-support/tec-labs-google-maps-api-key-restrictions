@@ -68,6 +68,7 @@ function tribe_extension_google_maps_api_key_restrictions() {
 	}
 
 	tribe_register_provider( '\Tribe\Extensions\GoogleMapsApiKeyRestrictions\Plugin' );
+
 }
 
 // Loads after common is already properly loaded.

@@ -229,6 +229,7 @@ class Settings {
 					'</a>'
 				),
 				'validation_type' => 'alpha_numeric_with_dashes_and_underscores',
+				'can_be_empty'    => true,
 			],
 		];
 
