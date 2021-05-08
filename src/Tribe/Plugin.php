@@ -96,12 +96,38 @@ class Plugin extends \tad_DI52_ServiceProvider {
 
 		// Start binds.
 
-
+		add_filter( 'pre_http_request', [ $this, 'pre_http_request' ], 10, 3 );
 
 		// End binds.
 
 		$this->container->register( Hooks::class );
 		$this->container->register( Assets::class );
+	}
+
+	/**
+	 * @param mixed  $response
+	 * @param array  $args
+	 * @param string $url
+	 *
+	 * @return array|WP_Error
+	 */
+	public function pre_http_request( $response, $args, $url ) {
+		$key = $this->get_option( 'gmaps_geo_restriction_key' );
+
+		// If this is not a Google Maps geocoding request, or if it is but our replacement
+		// key is already in place, then we need do nothing more.
+		if (
+			0 !== strpos( $url, 'https://maps.googleapis.com/maps/api/geocode' )
+			|| false !== strpos( $url, $key )
+		) {
+			return $response;
+		}
+
+		// Replace the API key.
+		$url = add_query_arg( 'key', $key, $url );
+
+		// Perform a new request with our alternative API key and return the result.
+		return wp_remote_get( $url, $args );
 	}
 
 	/**

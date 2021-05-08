@@ -220,7 +220,7 @@ class Settings {
 	 */
 	public function add_settings() {
 		$fields = [
-			'a_setting' => [ // TODO: Change setting.
+			'gmaps_geo_restriction_key' => [ // TODO: Change setting.
 				'type'            => 'text',
 				'label'           => esc_html__( 'Goodle Maps API key for Geocoding API restriction', 'tec-labs-google-maps-api-key-restrictions' ),
 				'tooltip'         => sprintf(
