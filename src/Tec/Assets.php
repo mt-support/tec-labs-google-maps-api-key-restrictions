@@ -14,6 +14,8 @@
  */
 namespace Tribe\Extensions\GoogleMapsApiKeyRestrictions;
 
+use TEC\Common\Contracts\Service_Provider;
+
 /**
  * Register Assets.
  *
@@ -21,7 +23,7 @@ namespace Tribe\Extensions\GoogleMapsApiKeyRestrictions;
  *
  * @package Tribe\Extensions\GoogleMapsApiKeyRestrictions
  */
-class Assets extends \tad_DI52_ServiceProvider {
+class Assets extends Service_Provider {
 	/**
 	 * Binds and sets up implementations.
 	 *
